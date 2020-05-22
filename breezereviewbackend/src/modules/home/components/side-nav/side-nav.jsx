@@ -44,12 +44,12 @@ export default class SideNav extends React.Component {
                     </div>
                     <a href="#" className="w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onClick={w3_close} title="close menu"><i className="fa fa-remove"></i>  Close Menu</a>
                     <a href="#" className="w3-padding"><i className="fa fa-bullseye"></i>  Dashboard</a>
-                    <Sidemenu name='  Company ' icon='fa fa-building' submenulink1='/create_company' submenulink2='/view_company' id='Company' />
-                    <Sidemenu name='  Location ' icon='fa fa-location-arrow' submenulink1='/create_location' submenulink2='/view_location' id='Location' />
-                    <Sidemenu name='  Users ' icon='fa fa-users' submenulink1='/create_user' submenulink2='/view_user' id='User' />
-                    <Sidemenu name='  Twilio ' icon='fa fa-phone' submenulink1='/create_twilio' submenulink2='/view_twilio' id='Twilio' />
-                    <Sidemenu name='  Links ' icon='fa fa-chain' submenulink1='/create_links' submenulink2='/view_links' id='Links' />
-                    <Sidemenu name='  Template ' icon='fa fa-files-o' submenulink1='/create_template' submenulink2='/view_template' id='Template' />
+                    <Sidemenu name='  Company ' icon='fa fa-building' submenulink1='create_company' submenulink2='view_company' id='company' />
+                    <Sidemenu name='  Location ' icon='fa fa-location-arrow' submenulink1='create_location' submenulink2='view_location' id='location' />
+                    <Sidemenu name='  Users ' icon='fa fa-users' submenulink1='create_user' submenulink2='view_user' id='user' />
+                    <Sidemenu name='  Twilio ' icon='fa fa-phone' submenulink1='create_twilio' submenulink2='view_twilio' id='twilio' />
+                    <Sidemenu name='  Links ' icon='fa fa-chain' submenulink1='create_links' submenulink2='view_links' id='links' />
+                    <Sidemenu name='  Template ' icon='fa fa-files-o' submenulink1='create_template' submenulink2='view_template' id='template' />
                 </nav>
                 <div className="w3-overlay w3-hide-large w3-animate-opacity" onClick={w3_close} style={{ cursor: 'pointer' }} title="close side menu"></div>
             </div>

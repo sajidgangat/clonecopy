@@ -1,5 +1,29 @@
 import React from "react";
 import "./reusable.css";
+import { Link, Route, BrowserRouter as Router } from "react-router-dom";
+import AddCompany from "../add-company/add-company";
+import { Switch} from "react-router-dom";
+import Dashboard from '../dashboard/dashboard';
+
+
+export default class RouterDom extends React.Component{
+    constructor(props){
+        super(props)
+        console.log(props)
+    }
+    render(){
+        return(
+{
+
+}
+        );
+    }
+}
+
+
+
+
+
 
 const myAccFunc = (data, active) => {
   //debugger
@@ -15,28 +39,50 @@ const myAccFunc = (data, active) => {
 };
 
 export const Sidemenu = (props) => {
+  
   return (
+      <Router>
     <div>
-      <a
+      <p
         onClick={() => myAccFunc(props.id, props.icon)}
-        href="#"
         className="w3-padding"
         id={props.icon}
       >
         <i className={props.icon}></i>  {props.name}{" "}
         <i className="fa fa-caret-down"></i>
-      </a>
+      </p>
       <div
         id={props.id}
         className="w3-bar-block w3-hide w3-padding-medium w3-medium"
       >
-        <a href={props.submenulink1} className="w3-bar-item w3-button">
+          
+          <Link className="w3-bar-item w3-button" to={`${props.submenulink1}`}>
+          Add
+        </Link>
+
+        <Link className="w3-bar-item w3-button" to={props.submenulink2}>
           View
-        </a>
-        <a href={props.submenulink2} className="w3-bar-item w3-button">
-          Add New
-        </a>
+        </Link>
+       
+       
       </div>
+      {/* <Dashboard data = {`${props.submenulink1}`}/> */}
+     {/* <Switch>
+<Route path={`/${props.submenulink1}`} component={ViewUsers} />
+</Switch> */}
+
     </div>
+
+    </Router>
   );
 };
+
+
+
+function ViewUsers() {
+    return(
+        <>
+      <AddCompany/>
+        </>
+    );
+}
