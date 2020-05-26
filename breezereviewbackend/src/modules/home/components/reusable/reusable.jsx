@@ -41,7 +41,7 @@ const myAccFunc = (data, active) => {
 export const Sidemenu = (props) => {
   
   return (
-      <Router>
+      
     <div>
       <p
         onClick={() => myAccFunc(props.id, props.icon)}
@@ -67,13 +67,13 @@ export const Sidemenu = (props) => {
        
       </div>
       {/* <Dashboard data = {`${props.submenulink1}`}/> */}
-     <Switch>
+     {/* <Switch>
 <Route path={`/${props.submenulink1}`} component={ViewUsers} />
-</Switch>
+</Switch> */}
 
     </div>
 
-    </Router>
+   
   );
 };
 

@@ -19,10 +19,11 @@ render(){
 <div>
 
 
-<SideNav/>
-<Switch>
+{/* <SideNav/> */}
+<AddCompany/>
+{/* <Switch>
 <Route path={`/${Resusable.submenulink1}`} component={AddCompany} />
-</Switch>
+</Switch> */}
 
 </div>
     );

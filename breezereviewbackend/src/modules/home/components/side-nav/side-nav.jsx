@@ -40,11 +40,11 @@ export default class SideNav extends React.Component {
                 </div>
                 <nav className="w3-sidenav w3-collapse w3-white w3-animate-left" style={{ zIndex: '3', width: '300px' }}><br />
                     <div className="w3-container">
-                        <h5 className='paddtop'>Dashboard</h5>
+                        <h5 className='paddtop'>Welcome</h5>
                     </div>
                     <a href="#" className="w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onClick={w3_close} title="close menu"><i className="fa fa-remove"></i>  Close Menu</a>
                     <a href="#" className="w3-padding"><i className="fa fa-bullseye"></i>  Dashboard</a>
-                    <Sidemenu name='  Company ' icon='fa fa-building' submenulink1='create_company' submenulink2='view_company' id='company' />
+                    <Sidemenu name='  Company ' icon='fa fa-building' submenulink1='add_company' submenulink2='view_company' id='company' />
                     <Sidemenu name='  Location ' icon='fa fa-location-arrow' submenulink1='create_location' submenulink2='view_location' id='location' />
                     <Sidemenu name='  Users ' icon='fa fa-users' submenulink1='create_user' submenulink2='view_user' id='user' />
                     <Sidemenu name='  Twilio ' icon='fa fa-phone' submenulink1='create_twilio' submenulink2='view_twilio' id='twilio' />
