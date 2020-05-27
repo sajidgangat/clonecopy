@@ -1,6 +1,7 @@
 import React from "react";
 import "./side-nav.css";
 import { Sidemenu } from "../reusable/reusable";
+import { Link } from "react-router-dom";
 function w3_open() {
   document.getElementsByClassName("w3-sidenav")[0].style.display = "block";
   document.getElementsByClassName("w3-overlay")[0].style.display = "block";
@@ -62,9 +63,9 @@ export default class SideNav extends React.Component {
           >
             <i className="fa fa-remove"></i>  Close Menu
           </a>
-          <a href="#" className="w3-padding">
+          <Link to="/dashboard" className="w3-padding">
             <i className="fa fa-bullseye"></i>  Dashboard
-          </a>
+          </Link>
           <Sidemenu
             name="  Company "
             icon="fa fa-building"
