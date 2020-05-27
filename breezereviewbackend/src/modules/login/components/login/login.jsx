@@ -2,7 +2,7 @@ import React from "react";
 import "./login.css";
 import Logo from '../../../../assets/bmw.png'
 import {Link} from "react-router-dom";
-import ServiceApi from '../../../login/serviceApi';
+import {LoginApi} from '../../../login/serviceApi';
 export default class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -23,6 +23,7 @@ export default class Login extends React.Component {
   handleClick = (event) =>{
     event.preventDefault();
     console.log(this.state);
+   LoginApi(this.state)
     }
 
 
