@@ -3,28 +3,63 @@ import "./login.css";
 import Logo from '../../../../assets/bmw.png'
 import {Link} from "react-router-dom";
 import {LoginApi} from '../../../login/serviceApi';
+
+const emailReg = RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+
+const formValid = formErrors =>{
+  let valid = true;
+  
+  Object.values(formErrors).forEach(val =>{
+    val.length > 0 && (valid = false)
+  });
+  return valid;
+}
+
+
+
 export default class Login extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {username:'',password:''}
+    this.state = {username:'',password:'',formErrors:{username:'',password:''}}
   }
 
-   handleChange = (event)=>{
+  handleSubmit = (event)=>{
     // debugger
-      this.setState({username:event.target.value});
+      event.preventDefault();
+
+      if(formValid(this.state.formErrors)){
+        console.log(`data is Username : ${this.state}`);
+      }
+      else{
+        console.log('Form is invalid');
+      }
+
+
+      //this.setState({username:event.target.value});
       //console.log(this.state)
   }
 
-  handlePassword = (event)=>
-  {
-    this.setState({password:event.target.value});
-  }
-
-  handleClick = (event) =>{
+  handleChange = (event) =>{
     event.preventDefault();
-    console.log(this.state);
-   LoginApi(this.state)
+    const {name,value} = event.target
+   // console.log(name,value)
+    let newform = this.state.formErrors;
+
+    switch(name){
+      case 'username':
+        newform.username = emailReg.test(value) && value.length > 0 ? "" : "Email not valid";
+      
+
+      case 'password':
+        newform.password = value.length < 1 ? "Password cannot be blank": "";
+        break;
+        default:
+          break;
     }
+this.setState({newform, [name]:value},() => console.log(this.state))
+  };
+
+
 
 
   render() {
@@ -38,10 +73,16 @@ export default class Login extends React.Component {
         <form className="w3-container">
           <div className="w3-section">
             <label><b>Username</b></label>
-            <input className="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="username" onChange={this.handleChange} required/>
+            <input className={this.state.formErrors.username.length > 0 ? 'w3-input w3-border w3-margin-bottom w3-border-red': 'w3-input w3-border w3-margin-bottom'} type="text" placeholder="Enter Username" name="username" onChange={this.handleChange} noValidate/>
+            {this.state.formErrors.username.length > 0 &&(
+              <span className="" style={{color:'red'}}>{this.state.formErrors.username}<br/></span>
+            )}
             <label><b>Password</b></label>
-            <input className="w3-input w3-border" type="text" placeholder="Enter Password" name="password" onChange={this.handlePassword} required/>
-            <button className="w3-button w3-block w3-green w3-section w3-padding" type="submit"  onClick={this.handleClick}>Login</button>
+            <input className={this.state.formErrors.password.length > 0 ? 'w3-input w3-border w3-margin-bottom w3-border-red': 'w3-input w3-border w3-margin-bottom'} type="text" placeholder="Enter Password" name="password" onChange={this.handleChange} noValidate/>
+            {this.state.formErrors.password.length > 0 &&(
+              <span className="" style={{color:'red'}}>{this.state.formErrors.password}<br/></span>
+            )}
+            <button className="w3-button w3-block w3-green w3-section w3-padding" type="submit"  onClick={this.handleSubmit}>Login</button>
            
           </div>
         </form>
