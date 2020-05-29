@@ -1,7 +1,7 @@
 import React from "react";
 import "./side-nav.css";
 import { Sidemenu } from "../reusable/reusable";
-import { Link } from "react-router-dom";
+import { Link,Redirect } from "react-router-dom";
 function w3_open() {
   document.getElementsByClassName("w3-sidenav")[0].style.display = "block";
   document.getElementsByClassName("w3-overlay")[0].style.display = "block";
@@ -10,6 +10,12 @@ function w3_open() {
 function w3_close() {
   document.getElementsByClassName("w3-sidenav")[0].style.display = "none";
   document.getElementsByClassName("w3-overlay")[0].style.display = "none";
+}
+
+const handleLogout = (event)=>{
+
+  localStorage.clear();
+  //this.props.history.push("/login");
 }
 
 // Accordion
@@ -108,6 +114,9 @@ export default class SideNav extends React.Component {
             submenulink2="view_template"
             id="template"
           />
+          <span to="/dashboard" onClick={handleLogout} className="w3-padding">
+            <i className="fa fa-arrow-left"></i>  logout
+          </span>
         </nav>
         <div
           className="w3-overlay w3-hide-large w3-animate-opacity"
