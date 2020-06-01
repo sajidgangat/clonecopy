@@ -2,7 +2,7 @@ import React from "react";
 import "./login.css";
 import Logo from "../../../../assets/bmw.png";
 import { Link } from "react-router-dom";
-import { LoginApi } from "../../../login/serviceApi";
+import  {LoginApi}  from "../../../login/serviceApi";
 
 const emailReg = RegExp(
   /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -31,11 +31,20 @@ export default class Login extends React.Component {
   handleSubmit = (event) => {
     // debugger
     event.preventDefault();
+    const { history } = this.props;
 
+
+   // console.log(history);
     if (formValid(this.state)) {
-      console.log(`data is Username : ${this.state}`);
+     // console.log(`data is Username : ${this.state}`);
 
-      LoginApi(this.state);
+      LoginApi(this.state,history);
+      // if(logindata != 0)
+      // {
+      //   history.push('/dasboard');
+      //   alert(logindata)
+      // }
+     
     } else {
       console.log("Form is invalid");
     }

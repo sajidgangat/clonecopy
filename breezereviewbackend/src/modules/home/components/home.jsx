@@ -14,7 +14,7 @@ export default class Home extends React.Component {
   }
 
   render() {
-      debugger
+      //debugger
      if(localStorage.getItem("token") == null)
      {
 
