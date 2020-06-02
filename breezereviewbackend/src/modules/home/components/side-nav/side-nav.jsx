@@ -55,7 +55,7 @@ export default class SideNav extends React.Component {
         </div>
         <nav
           className="w3-sidenav w3-collapse w3-white w3-animate-left"
-          style={{ zIndex: "3", width: "300px" }}
+          style={{ zIndex: "11", width: "300px" }}
         >
           <br />
           <div className="w3-container">

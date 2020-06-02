@@ -1,14 +1,20 @@
 import React from "react";
 import "./view-company.css";
 import MaterialTable from "material-table";
-
+import  {GetCompanyApi}  from "../../../login/serviceApi";
 
 
 export default class ViewCompany extends React.Component {
   constructor(props) {
     super(props);
+    this.state={list:[]}
   }
 
+  componentDidMount(){
+    // GetCompanyApi(res => this.setState({list: res}))
+ let data = GetCompanyApi()
+    console.log(data)
+  }
   render() {
     return (
         <div className="w3-main" style={{marginLeft:'300px',marginTop:'43px'}}>
